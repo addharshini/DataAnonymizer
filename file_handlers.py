@@ -1,49 +1,47 @@
 # file_handlers.py
 import os
 import pandas as pd
-import json
-from docx import Document
-from PyPDF2 import PdfReader
+import docx
 from bs4 import BeautifulSoup
+from PyPDF2 import PdfReader
 
-def handle_file(file_path, anonymize_func):
-    ext = file_path.split('.')[-1].lower()
-    if ext == 'csv':
-        df = pd.read_csv(file_path)
-        anonymized_data = df.applymap(lambda x: anonymize_func(str(x), file_path))
-        df.to_csv(file_path, index=False)
-    elif ext == 'xlsx':
-        df = pd.read_excel(file_path)
-        anonymized_data = df.applymap(lambda x: anonymize_func(str(x), file_path))
-        df.to_excel(file_path, index=False)
-    elif ext == 'json':
-        with open(file_path, 'r') as f:
-            data = json.load(f)
-        anonymized_data = {k: anonymize_func(str(v), file_path) for k, v in data.items()}
-        with open(file_path, 'w') as f:
-            json.dump(anonymized_data, f, indent=4)
-    elif ext == 'txt':
-        with open(file_path, 'r') as f:
+def handle_file(file_path, anonymize_fn):
+    ext = os.path.splitext(file_path)[1].lower()
+
+    if ext == ".txt":
+        with open(file_path, "r", encoding="utf-8") as f:
             text = f.read()
-        anonymized_text = anonymize_func(text, file_path)
-        with open(file_path, 'w') as f:
-            f.write(anonymized_text)
-    elif ext == 'pdf':
-        with open(file_path, 'rb') as f:
-            reader = PdfReader(f)
-            text = ''.join([page.extract_text() for page in reader.pages])
-        anonymized_text = anonymize_func(text, file_path)
-        # Re-save PDF here after modifying text (complex)
-    elif ext == 'docx':
-        doc = Document(file_path)
-        text = ''.join([para.text for para in doc.paragraphs])
-        anonymized_text = anonymize_func(text, file_path)
-        # Modify docx text here and re-save it
-    elif ext == 'html':
-        with open(file_path, 'r') as f:
-            soup = BeautifulSoup(f, 'html.parser')
+        anonymized = anonymize_fn(text, file_path)
+        with open(f"anonymized_{os.path.basename(file_path)}", "w", encoding="utf-8") as f:
+            f.write(anonymized)
+
+    elif ext in [".xls", ".xlsx"]:
+        df = pd.read_excel(file_path)
+        for col in df.select_dtypes(include=["object"]):
+            df[col] = df[col].astype(str).apply(lambda x: anonymize_fn(x, file_path))
+        df.to_excel(f"anonymized_{os.path.basename(file_path)}", index=False)
+
+    elif ext == ".pdf":
+        reader = PdfReader(file_path)
+        text = "\n".join([page.extract_text() or "" for page in reader.pages])
+        anonymized = anonymize_fn(text, file_path)
+        with open(f"anonymized_{os.path.basename(file_path)}.txt", "w", encoding="utf-8") as f:
+            f.write(anonymized)
+
+    elif ext == ".docx":
+        doc = docx.Document(file_path)
+        full_text = "\n".join([para.text for para in doc.paragraphs])
+        anonymized = anonymize_fn(full_text, file_path)
+        with open(f"anonymized_{os.path.basename(file_path)}.txt", "w", encoding="utf-8") as f:
+            f.write(anonymized)
+
+    elif ext == ".html":
+        with open(file_path, "r", encoding="utf-8") as f:
+            soup = BeautifulSoup(f, "html.parser")
         text = soup.get_text()
-        anonymized_text = anonymize_func(text, file_path)
-        # Re-save HTML here
+        anonymized = anonymize_fn(text, file_path)
+        with open(f"anonymized_{os.path.basename(file_path)}.txt", "w", encoding="utf-8") as f:
+            f.write(anonymized)
+
     else:
-        print(f"Unsupported file type: {ext}")
+        raise ValueError(f"Unsupported file type: {ext}")

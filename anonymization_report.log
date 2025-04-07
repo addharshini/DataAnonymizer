@@ -27,3 +27,7 @@
 2025-04-07 15:33:35,572 - File: sample.txt | PERSON | Original: Robert Perez | Replacement: Evan Reed
 2025-04-07 15:33:35,573 - File: sample.txt | DATE | Original: 4278761079150229863 | Replacement: 2001-09-15
 2025-04-07 15:33:35,573 - File: sample.txt | PERSON | Original: Email | Replacement: Nancy Warner
+2025-04-07 15:52:14,557 - File: user_input | ssn | Original: 334-12-5552 | Replacement: 887-14-5837
+2025-04-07 15:52:14,589 - File: user_input | ORG | Original: Boyer-Cooke | Replacement: Carter PLC
+2025-04-07 15:52:14,590 - File: user_input | PERSON | Original: Spencer LLC Collins-Navarro | Replacement: Holly Ford
+2025-04-07 15:52:14,591 - File: user_input | PERSON | Original: Robert Perez | Replacement: Jacob Vasquez
