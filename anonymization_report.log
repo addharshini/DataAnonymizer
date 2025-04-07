@@ -1,0 +1,29 @@
+2025-04-04 13:03:14,839 - File: sample_data/sample.txt | ssn | Original: 123-45-6789 | Replacement: 017-01-7316
+2025-04-04 13:03:14,840 - File: sample_data/sample.txt | credit_card | Original: 4111-1111-1111-1111 | Replacement: 4967704302577259
+2025-04-04 13:03:14,864 - File: sample_data/sample.txt | PERSON | Original: John Doe | Replacement: Michelle Brown
+2025-04-04 13:03:14,865 - File: sample_data/sample.txt | ORG | Original: SSN | Replacement: Lambert and Sons
+2025-04-04 13:03:40,196 - File: sample_data/sample.txt | ssn | Original: 017-01-7316 | Replacement: 480-70-1103
+2025-04-04 13:03:40,197 - File: sample_data/sample.txt | credit_card | Original: 4967704302577259 | Replacement: 4278761079150229863
+2025-04-04 13:03:40,206 - File: sample_data/sample.txt | PERSON | Original: Michelle Brown | Replacement: Brandon Willis
+2025-04-04 13:03:40,206 - File: sample_data/sample.txt | PERSON | Original: Lambert | Replacement: Morgan Moore
+2025-04-04 13:03:55,125 - File: sample_data/sample.txt | ssn | Original: 480-70-1103 | Replacement: 259-63-1250
+2025-04-04 13:03:55,141 - File: sample_data/sample.txt | PERSON | Original: Brandon Willis | Replacement: Zachary Glass
+2025-04-04 13:03:55,145 - File: sample_data/sample.txt | ORG | Original: Morgan Moore | Replacement: Rodriguez Inc
+2025-04-07 15:23:48,763 - File: sample_data/sample.txt | ssn | Original: 259-63-1250 | Replacement: 216-47-9146
+2025-04-07 15:23:48,792 - File: sample_data/sample.txt | PERSON | Original: Zachary Glass | Replacement: Morgan Carlson
+2025-04-07 15:23:48,793 - File: sample_data/sample.txt | ORG | Original: Rodriguez Inc | Replacement: Rodriguez, Mason and Reid
+2025-04-07 15:24:27,487 - File: sample_data/sample.txt | ssn | Original: 216-47-9146 | Replacement: 334-12-5552
+2025-04-07 15:24:27,497 - File: sample_data/sample.txt | ORG | Original: Morgan Carlson | Replacement: Boyer-Cooke
+2025-04-07 15:24:27,497 - File: sample_data/sample.txt | ORG | Original: Rodriguez, | Replacement: Spencer LLC
+2025-04-07 15:24:27,499 - File: sample_data/sample.txt | ORG | Original: Mason | Replacement: Collins-Navarro
+2025-04-07 15:24:27,499 - File: sample_data/sample.txt | PERSON | Original: Reid | Replacement: Robert Perez
+2025-04-07 15:33:09,556 - File: user_input | ssn | Original: 334-12-5552 | Replacement: 010-42-8580
+2025-04-07 15:33:09,591 - File: user_input | ORG | Original: Boyer-Cooke | Replacement: Thornton-Holloway
+2025-04-07 15:33:09,592 - File: user_input | PERSON | Original: Spencer LLC Collins-Navarro | Replacement: Joshua Green
+2025-04-07 15:33:09,592 - File: user_input | PERSON | Original: Robert Perez | Replacement: Wendy Nicholson
+2025-04-07 15:33:35,557 - File: sample.txt | ssn | Original: 334-12-5552 | Replacement: 471-78-0141
+2025-04-07 15:33:35,570 - File: sample.txt | ORG | Original: Boyer-Cooke | Replacement: Anderson Ltd
+2025-04-07 15:33:35,571 - File: sample.txt | PERSON | Original: Spencer LLC Collins-Navarro | Replacement: William Martinez
+2025-04-07 15:33:35,572 - File: sample.txt | PERSON | Original: Robert Perez | Replacement: Evan Reed
+2025-04-07 15:33:35,573 - File: sample.txt | DATE | Original: 4278761079150229863 | Replacement: 2001-09-15
+2025-04-07 15:33:35,573 - File: sample.txt | PERSON | Original: Email | Replacement: Nancy Warner
