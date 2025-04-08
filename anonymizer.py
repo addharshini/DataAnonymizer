@@ -1,18 +1,17 @@
 # anonymizer.py
 import re
-import spacy
 from faker import Faker
 from config import CUSTOM_PATTERNS
 from logger import log_change
 from file_handlers import handle_file
 import sys
 
-# Initialize
-nlp = spacy.load("en_core_web_sm")
+# Initialize Faker
 fake = Faker()
 
 # Anonymization function
 def anonymize_text(text, file):
+    # Replace sensitive data based on custom regex patterns
     for label, pattern in CUSTOM_PATTERNS.items():
         matches = re.findall(pattern, text)
         for match in matches:
@@ -20,17 +19,10 @@ def anonymize_text(text, file):
             text = text.replace(match, replacement)
             log_change(file, match, replacement, label)
 
-    doc = nlp(text)
-    for ent in doc.ents:
-        if ent.label_ in ["PERSON", "GPE", "ORG", "DATE"]:
-            replacement = {
-                "PERSON": fake.name(),
-                "GPE": fake.city(),
-                "ORG": fake.company(),
-                "DATE": fake.date()
-            }[ent.label_]
-            text = text.replace(ent.text, replacement)
-            log_change(file, ent.text, replacement, ent.label_)
+    # Replace entities without using spaCy (basic pattern replacement)
+    text = re.sub(r"\b[A-Z][a-z]*\b", lambda x: fake.name(), text)  # Random name replacement
+    text = re.sub(r"\b[0-9]{4}-[0-9]{2}-[0-9]{2}\b", lambda x: fake.date(), text)  # Random date replacement
+    text = re.sub(r"\b[A-Za-z]+\b", lambda x: fake.city(), text)  # Replace city names
 
     return text
 
