@@ -1133,3 +1133,21 @@ Kiara William' -> '347 Anthony Port
 Lake Savannahmouth, MO 79395'
 [2025-04-07 17:37:05] File: Divya_Arthanari_Resume.pdf | Type: address | Replaced: '33091 experience as' -> '504 Bell Forges Suite 923
 Chadside, MP 31169'
+[2025-04-07 18:23:18] File: sample.txt | Type: ssn | Replaced: '123-45-6789' -> '689-80-3709'
+[2025-04-07 18:23:18] File: sample.txt | Type: credit_card | Replaced: '4111 1111 1111 1111' -> '180098843009743'
+[2025-04-07 18:23:18] File: sample.txt | Type: name | Replaced: 'John' -> 'Kimberly Edwards'
+[2025-04-07 18:23:18] File: sample.txt | Type: name | Replaced: 'Doe' -> 'Kathryn Anderson'
+[2025-04-07 18:23:18] File: sample.txt | Type: name | Replaced: 'New' -> 'Jennifer Rich'
+[2025-04-07 18:23:18] File: sample.txt | Type: name | Replaced: 'York' -> 'Wanda Thomas'
+[2025-04-07 18:23:18] File: sample.txt | Type: name | Replaced: 'City' -> 'Kurt Nguyen'
+[2025-04-07 18:23:18] File: sample.txt | Type: name | Replaced: 'His' -> 'Robert Thomas'
+[2025-04-07 18:23:18] File: sample.txt | Type: name | Replaced: 'Social' -> 'Cynthia Wall'
+[2025-04-07 18:23:18] File: sample.txt | Type: name | Replaced: 'Security' -> 'Jenna Graves'
+[2025-04-07 18:23:18] File: sample.txt | Type: name | Replaced: 'Number' -> 'Christopher Ferguson'
+[2025-04-07 18:23:18] File: sample.txt | Type: name | Replaced: 'Visa' -> 'David Adams'
+[2025-04-07 18:23:18] File: sample.txt | Type: name | Replaced: 'He' -> 'Zachary Griffin'
+[2025-04-07 18:23:18] File: sample.txt | Type: name | Replaced: 'Paris' -> 'Anna Vasquez'
+[2025-04-07 18:23:18] File: sample.txt | Type: address | Replaced: '14 and lives' -> '7697 Brian Highway
+South Brittney, AZ 64951'
+[2025-04-07 18:23:18] File: sample.txt | Type: address | Replaced: '3709 and his' -> '8995 Ramirez Village Apt. 422
+Montesmouth, AL 60405'
