@@ -1,47 +1,39 @@
-# file_handlers.py
-import os
-import pandas as pd
+import PyPDF2
 import docx
-from bs4 import BeautifulSoup
-from PyPDF2 import PdfReader
 
-def handle_file(file_path, anonymize_fn):
-    ext = os.path.splitext(file_path)[1].lower()
+def handle_file(file_path, anonymizer_func):
+    """
+    Process and anonymize text from a .txt file.
+    """
+    with open(file_path, "r", encoding="utf-8") as file:
+        text = file.read()
+    
+    # Anonymize the text
+    anonymized_text = anonymizer_func(text, file_path)
+    
+    # Write the anonymized content to a new file
+    output_file_path = "anonymized_" + file_path
+    with open(output_file_path, "w", encoding="utf-8") as file:
+        file.write(anonymized_text)
 
-    if ext == ".txt":
-        with open(file_path, "r", encoding="utf-8") as f:
-            text = f.read()
-        anonymized = anonymize_fn(text, file_path)
-        with open(f"anonymized_{os.path.basename(file_path)}", "w", encoding="utf-8") as f:
-            f.write(anonymized)
+def handle_pdf(file, anonymizer_func):
+    """
+    Extract text from a PDF and anonymize it.
+    """
+    pdf_reader = PyPDF2.PdfReader(file)
+    text = ""
+    for page in pdf_reader.pages:
+        text += page.extract_text()
+    
+    # Anonymize the text
+    return anonymizer_func(text, file.name)
 
-    elif ext in [".xls", ".xlsx"]:
-        df = pd.read_excel(file_path)
-        for col in df.select_dtypes(include=["object"]):
-            df[col] = df[col].astype(str).apply(lambda x: anonymize_fn(x, file_path))
-        df.to_excel(f"anonymized_{os.path.basename(file_path)}", index=False)
-
-    elif ext == ".pdf":
-        reader = PdfReader(file_path)
-        text = "\n".join([page.extract_text() or "" for page in reader.pages])
-        anonymized = anonymize_fn(text, file_path)
-        with open(f"anonymized_{os.path.basename(file_path)}.txt", "w", encoding="utf-8") as f:
-            f.write(anonymized)
-
-    elif ext == ".docx":
-        doc = docx.Document(file_path)
-        full_text = "\n".join([para.text for para in doc.paragraphs])
-        anonymized = anonymize_fn(full_text, file_path)
-        with open(f"anonymized_{os.path.basename(file_path)}.txt", "w", encoding="utf-8") as f:
-            f.write(anonymized)
-
-    elif ext == ".html":
-        with open(file_path, "r", encoding="utf-8") as f:
-            soup = BeautifulSoup(f, "html.parser")
-        text = soup.get_text()
-        anonymized = anonymize_fn(text, file_path)
-        with open(f"anonymized_{os.path.basename(file_path)}.txt", "w", encoding="utf-8") as f:
-            f.write(anonymized)
-
-    else:
-        raise ValueError(f"Unsupported file type: {ext}")
+def handle_docx(file, anonymizer_func):
+    """
+    Extract text from a DOCX file and anonymize it.
+    """
+    doc = docx.Document(file)
+    text = "\n".join([para.text for para in doc.paragraphs])
+    
+    # Anonymize the text
+    return anonymizer_func(text, file.name)
