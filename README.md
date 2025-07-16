@@ -35,6 +35,12 @@ To install the necessary dependencies, use the `requirements.txt` file:
     pip install -r requirements.txt
     ```
 
+* * *
+
+### 🖼️ UI Preview
+
+<img width="782" height="836" alt="Screenshot 2025-07-16 133446" src="https://github.com/user-attachments/assets/2d1b0325-33a6-4a52-a882-e03a864169d3" />
+
 ## Usage
 
 ### CLI Mode
