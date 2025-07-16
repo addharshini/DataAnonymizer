@@ -9,7 +9,7 @@ This project is a Python-based tool for anonymizing sensitive information in tex
 - Support both CLI (Command Line Interface) and Streamlit Web App for interactive use.
 - Log all changes made to files for auditing and reporting.
 
-## Prerequisites
+## Pre-requisites
 
 Make sure you have Python 3.6+ installed. The following Python libraries are required:
 
@@ -25,8 +25,8 @@ To install the necessary dependencies, use the `requirements.txt` file:
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/your-repository-url.git
-    cd your-repository-directory
+    git clone https://github.com/addharshini/DataAnonymizer.git
+    cd DataAnonymizer
     ```
 
 2. Install the required dependencies:
@@ -42,12 +42,10 @@ To install the necessary dependencies, use the `requirements.txt` file:
 1. To anonymize a file via CLI, run the following command:
 
     ```bash
-    python anonymizer.py input_file.txt
-    python anonymizer.py input_file.pdf
-    python anonymizer.py input_file.docx
+    python3 anonymizer.py sample.txt
     ```
 
-    Replace `input_file` with the path to your file. The anonymized text will be saved in a new file with the prefix `anonymized_`.
+    Replace `sample.txt` with the path to your file. The anonymized text will be saved in a new file with the prefix `anonymized_`.
 
 2. The changes made during anonymization will be logged in the `anonymization_log.txt` file.
 
@@ -86,8 +84,18 @@ The following Python libraries are required:
 - `python-docx`: For DOCX file text extraction.
 - `Faker`: For generating fake data.
 - `streamlit`: For the web app interface.
+* * *
 
-You can install these libraries using:
 
-```bash
-pip install -r requirements.txt
+### 📄 License
+
+MIT License © 2025 Divya Dharshini
+
+* * *
+
+### 🤝 Contributions
+
+Pull requests are welcome! For major changes, please open an issue first.
+
+* * *
+
