@@ -1,4 +1,4 @@
-# Data Anonymizer
+# Privacy Anonymizer
 
 This project is a Python-based tool for anonymizing sensitive information in text, PDF, DOCX, and plain text files. It uses regular expressions to identify and replace sensitive data (e.g., SSNs, credit card numbers, names, and addresses) with fake data generated using the Faker library.
 
@@ -25,7 +25,7 @@ To install the necessary dependencies, use the `requirements.txt` file:
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/addharshini/DataAnonymizer.git
+    git clone https://github.com/addharshini/PrivacyAnonymizer.git
     cd DataAnonymizer
     ```
 
