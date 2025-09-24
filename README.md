@@ -26,7 +26,7 @@ To install the necessary dependencies, use the `requirements.txt` file:
 
     ```bash
     git clone https://github.com/addharshini/PrivacyAnonymizer.git
-    cd DataAnonymizer
+    cd PrivacyAnonymizer
     ```
 
 2. Install the required dependencies:
